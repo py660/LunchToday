@@ -34,8 +34,8 @@ messaging.onBackgroundMessage((payload) => {
       body: JSON.stringify(payload),
       icon: '/firebase-logo.png'
     };
-  
-    self.registration.showNotification(notificationTitle, notificationOptions);
+    // Apparently its the effor that counts, since I just need to define this function for it to work
+    //self.registration.showNotification(notificationTitle, notificationOptions);
 });
 
 
