@@ -18,7 +18,8 @@ const messaging = getMessaging(app);
 // Add the public key generated from the console here.
 
 
-function requestPermission() {
+function requestPermission(attempt) {
+  attempt = attempt || 0;
   console.log('Requesting permission...');
   Notification.requestPermission().then((permission) => {
     if (permission === 'granted'){
@@ -35,7 +36,9 @@ function requestPermission() {
               "Content-Type": "text/plain;charset=utf-8",
             }
           });
-          
+
+          alert("Registration sucessful");
+
           onMessage((payload) => {
             console.log('Message received. ', payload);
             alert(payload);
@@ -49,6 +52,9 @@ function requestPermission() {
         }
       }).catch((err) => {
         console.log('An error occurred while retrieving token. ', err);
+        if (attempt < 3){
+          setTimeout(requestPermission, 1000, attempt+1);
+        }
         // ...
       });
     }
