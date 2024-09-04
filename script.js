@@ -51,9 +51,7 @@ function requestPermission() {
         }
       }).catch((err) => {
         console.log('An error occurred while retrieving token. ', err);
-        if (attempt < 3){
-          setTimeout(requestPermission, 1000);
-        }
+        setTimeout(requestPermission, 500);
         // ...
       });
     }
