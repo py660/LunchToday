@@ -62,4 +62,24 @@ function requestPermission() {
   })
 }
 
-document.getElementById("subscribe").addEventListener("click", requestPermission);
+
+function unsubscribe(){
+  getToken(messaging, { vapidKey: 'BCA3U7fn_wiiI2t__LnxA7ASyQ_93q-rKU8EaKUPpWtjfYLLXSUGZCHcmEpuZoa1WozAR7EfXjKqFwN2rV85J2k' }).then((currentToken) => {
+    if (currentToken) {
+      console.log(currentToken);
+        
+      fetch(SERVER_URL + "path=unsubscribe&token="+currentToken, {
+        redirect: "follow",
+        method: "GET",
+      }).then(()=>{alert("Succesfully unsubscribed")}).catch((e)=>{alert("ERROR:", e)});
+    }
+    else {
+      alert("You can't unsubscribe something you haven't subscribed to!");
+    }
+  }).catch((err) => {
+    alert("You can't unsubscribe something you haven't subscribed to!");
+    // ...
+  });
+}
+
+document.getElementById("unsubscribe").addEventListener("click", unsubscribe);
