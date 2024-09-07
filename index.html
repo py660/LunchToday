@@ -14,18 +14,31 @@
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
+    <link rel="stylesheet" href="notifications.css">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    <h1>What's for lunch?</h1>
-    <p>Upcoming: <span id="title"></span>
-    <span id="desc"></span>
-    </p>
+    <div class="today">
+        hi
+    </div>
+    <div class="main">
+        <h1>What's for lunch?</h1>
+        <div>
+            <h2 id="title"></h2>
+            <p id="desc"></p>
+        </div>
 
-    <button id="subscribe">Subscribe to Daily Lunch Updates</button>
-    <p>We'll send you a notification every weekday at 7:00 AM, unsubscribe anytime on this website. (only applicable to New Canaan High School students)</p>
+        <button id="subscribe" class="subscribe">Subscribe to Daily Lunch Updates</button>
+        <p>We'll send you a notification every weekday sometime between 7:00 AM and 8:00 AM. You can unsubscribe anytime on this website. (only applicable to New Canaan High School students)</p>
+        
+        <button id="unsubscribe">Unsubscribe</button>
+        <button id="debug">Debug Info</button>
+        
+        <footer>Copyright &copy; 2024 Jason Lin. All Rights Reserved</footer>
+    </div>
 
+    <script src="notifications.js"></script>
     <script type="module" src="script.js"></script>
 </body>
 </html>
