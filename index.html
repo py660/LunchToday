@@ -20,7 +20,12 @@
 </head>
 <body>
     <div class="today">
-        hi
+        <div>
+            <h1 id="title">Loading...</h1>
+            <sub id="timestamp"></sub>
+            <p id="desc">Fetching the latest details...</p>
+        </div>
+        <img id="browser" src="browsers/chrome.png" height="85px">
     </div>
     <div class="main">
         <h1>What's for lunch?</h1>
@@ -30,15 +35,16 @@
         </div>
 
         <button id="subscribe" class="subscribe">Subscribe to Daily Lunch Updates</button>
-        <p>We'll send you a notification every weekday sometime between 7:00 AM and 8:00 AM. You can unsubscribe anytime on this website. (only applicable to New Canaan High School students)</p>
+        <p>We'll send you a notification every weekday at around 7:30 AM. You can unsubscribe anytime on this website. (NOTE: This service is only applicable to New Canaan High School students)</p>
         
         <button id="unsubscribe">Unsubscribe</button>
         <button id="debug">Debug Info</button>
-        
+
         <footer>Copyright &copy; 2024 Jason Lin. All Rights Reserved</footer>
     </div>
 
     <script src="notifications.js"></script>
+    <script src="browser-detection.js"></script>
     <script type="module" src="script.js"></script>
 </body>
 </html>

@@ -24,6 +24,19 @@ html, body {
     
 }
 
+.today {
+    display: flex;
+    flex-direction: row;
+}
+.today div {
+    min-width: 0;
+    overflow: auto;
+    flex-grow: 1;
+}
+.today div h1,h2,h3,h4,h5,h6 {
+    margin: 0;
+}
+
 .main h1 {
     margin: 0;
 }

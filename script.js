@@ -25,8 +25,29 @@ window.onerror = function (message, file, line, col, error) {
 };
 
 window.addEventListener('unhandledrejection', function (e) {
-  notifier.alert(e.error.message);
+  notifier.alert(e.reason);
 });
+
+
+// Get saved data from sessionStorage
+let timestamp = localStorage.getItem("timestamp");
+let data = localStorage.getItem("data");
+
+if (timestamp && data && (new Date() - Date.parse(timestamp) < 60*60*1000)){
+  populateNotification(data);
+}
+else{
+  fetch(SERVER_URL).then(e=>e.text()).then(populateNotification).catch(e=>notifier.alert(e.toString()));
+}
+
+function populateNotification(x){
+  let e = JSON.parse(x);
+  localStorage.setItem("data", x);
+  localStorage.setItem("timestamp", (new Date()).toUTCString());
+  document.getElementById("title").innerText = e[0];
+  document.getElementById("desc").innerText = e[1];
+  document.getElementById("timestamp").innerText = e[2];
+}
 
 
 const firebaseConfig = {
@@ -147,3 +168,6 @@ function debug(){
 document.getElementById("subscribe").addEventListener("click", subscribe);
 document.getElementById("unsubscribe").addEventListener("click", unsubscribe);
 document.getElementById("debug").addEventListener("click", debug);
+
+
+document.getElementById("browser").src = "browsers/" + browser + ".png";
