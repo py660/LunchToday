@@ -25,8 +25,11 @@ let isEdgeChromium = isChrome && (navigator.userAgent.indexOf("Edg") != -1);
 let isBlink = (isChrome || isOpera) && !!window.CSS;
 
 
-let browser = "chrome";
-if (isFirefox){
+let browser = "default";
+if (true){
+    browser = "default";
+}
+else if (isFirefox){
     browser = "firefox";
 }
 else if (isChrome){
@@ -50,4 +53,3 @@ else if (isEdgeChromium || isBlink){
 else{
     browser = "chrome";
 }
-

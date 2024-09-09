@@ -21,7 +21,6 @@ html, body {
     padding: 20px;
     width: max(70vw, 500px);
     margin: 10px;
-    
 }
 
 .today {
@@ -35,6 +34,9 @@ html, body {
 }
 .today div h1,h2,h3,h4,h5,h6 {
     margin: 0;
+}
+.today img {
+    margin: -6px;
 }
 
 .main h1 {
